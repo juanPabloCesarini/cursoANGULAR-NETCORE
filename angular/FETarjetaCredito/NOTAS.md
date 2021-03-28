@@ -3,8 +3,8 @@
 
 ### Para crear un componente
 * ng g c carpeta/nombre_componente 
-  * * g: generate
-  * * c: component
+  * g: generate
+  * c: component
 
 ### Para instalar bootstrap desde consola
 * npm install bootstrap@next
