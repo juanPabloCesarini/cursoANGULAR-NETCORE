@@ -25,5 +25,15 @@ export class TarjetaCreditoComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  agregarTarjeta(){
+    console.log(this.form)
+    const tarjeta: any = {
+      titular: this.form.get('titular')?.value,
+      nroTarj: this.form.get('nroTarj')?.value,
+      fechaExp: this.form.get('fechaExp')?.value,
+      cvv: this.form.get('cvv')?.value,
+    }
+    this.listTarjetas.push(tarjeta);
+    this.form.reset();
+  }
 }
