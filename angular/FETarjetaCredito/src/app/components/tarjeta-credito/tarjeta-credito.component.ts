@@ -9,8 +9,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class TarjetaCreditoComponent implements OnInit {
   listTarjetas: any[] = [
-    { titular: "Juan Perez", nroTarj: "5435587756", fechaExp: "11/21", cvv: "123"},
-    { titular: "Maia Juarez", nroTarj: "376625555225489", fechaExp: "04/23", cvv: "548"},
+    /*{  titular: "Juan Perez", nroTarj: "5435587756", fechaExp: "11/21", cvv: "123"},
+    { titular: "Maia Juarez", nroTarj: "376625555225489", fechaExp: "04/23", cvv: "548"}, */
   ];
 
   form: FormGroup;
@@ -37,5 +37,10 @@ export class TarjetaCreditoComponent implements OnInit {
     this.listTarjetas.push(tarjeta);
     this.toastr.success(tarjeta.titular + ' tu tarjeta se registró exitosamente', 'Tarjeta registrada');
     this.form.reset();
+  }
+
+  eliminarTarjeta(index: number){
+    this.listTarjetas.splice(index, 1);
+    this.toastr.error(' Tu tarjeta se eliminó exitosamente', 'Tarjeta eliminada')
   }
 }
