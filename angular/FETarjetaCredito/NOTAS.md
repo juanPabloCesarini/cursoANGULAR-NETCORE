@@ -12,3 +12,7 @@ Para configurar bootstrap agregar la siguiente linea en styles del archivo angul
 "node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 * En el package.json las dependencias con @ adelante son las propias de angular
+
+### Para instalar toastr desde consola
+* npm install ngx-toastr --save
+* Documentación: https://www.npmjs.com/package/ngx-toastr
