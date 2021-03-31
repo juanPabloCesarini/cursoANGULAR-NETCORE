@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "7unzPHkbq9FSaNAdk/Qvu0Y/L6umr1Q5iVe+6NHoMgIFSL43jDH6fIqUokn/lHGAQZO1pZag/xY4zH02Guv3eA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Juan Pablo\\Documents\\GitHub\\cursoANGULAR-NETCORE\\angular\\BETarjetaCredito\\BETarjetaCredito\\BETarjetaCredito.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Juan Pablo\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Juan Pablo\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Juan Pablo\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\Juan Pablo\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\Juan Pablo\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\Juan Pablo\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}
