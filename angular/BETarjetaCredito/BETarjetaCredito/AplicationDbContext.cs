@@ -10,7 +10,7 @@ namespace BETarjetaCredito
     public class AplicationDbContext: DbContext
     {
         
-        DbSet<TarjetaCredito> TarjetaCredito { get; set; }
+        public DbSet<TarjetaCredito> TarjetaCredito { get; set; }
 
         public AplicationDbContext(DbContextOptions<AplicationDbContext> options): base(options) 
         {

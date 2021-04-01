@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BETarjetaCredito.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +14,28 @@ namespace BETarjetaCredito
     [ApiController]
     public class TarjetaController : ControllerBase
     {
+
+        private readonly AplicationDbContext _context;
+
+        public TarjetaController(AplicationDbContext context)
+        {
+            _context = context;
+        }
         // GET: api/<TarjetaController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IActionResult> Get()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                var listTarjetas = await _context.TarjetaCredito.ToListAsync();
+                return Ok(listTarjetas);
+
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
         }
 
         // GET api/<TarjetaController>/5
@@ -28,8 +47,19 @@ namespace BETarjetaCredito
 
         // POST api/<TarjetaController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Post([FromBody] TarjetaCredito tarjeta)
         {
+            try
+            {
+                _context.Add(tarjeta);
+                await _context.SaveChangesAsync();
+                return Ok(tarjeta);
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
         }
 
         // PUT api/<TarjetaController>/5
