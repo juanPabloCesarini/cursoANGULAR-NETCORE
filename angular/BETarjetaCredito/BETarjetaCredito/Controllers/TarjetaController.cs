@@ -53,7 +53,7 @@ namespace BETarjetaCredito
             {
                 _context.Add(tarjeta);
                 await _context.SaveChangesAsync();
-                return Ok(tarjeta);
+                return Ok(tarjeta); 
             }
             catch (Exception ex)
             {
@@ -64,8 +64,23 @@ namespace BETarjetaCredito
 
         // PUT api/<TarjetaController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> Put(int id, [FromBody] TarjetaCredito tarjeta)
         {
+            try
+            {
+                if (id != tarjeta.id)
+                {
+                    return NotFound();
+                }
+                _context.Update(tarjeta);
+                await _context.SaveChangesAsync();
+                return Ok(new {message = "La tarjeta fue actualizada con éxito"});
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
         }
 
         // DELETE api/<TarjetaController>/5
