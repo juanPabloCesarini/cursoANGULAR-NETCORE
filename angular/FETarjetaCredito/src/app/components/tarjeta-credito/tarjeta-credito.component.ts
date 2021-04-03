@@ -10,10 +10,7 @@ import { TarjetaService } from 'src/app/services/tarjeta.service';
   styleUrls: ['./tarjeta-credito.component.css']
 })
 export class TarjetaCreditoComponent implements OnInit {
-  listTarjetas: any[] = [
-    /*{  titular: "Juan Perez", nroTarj: "5435587756", fechaExp: "11/21", cvv: "123"},
-    { titular: "Maia Juarez", nroTarj: "376625555225489", fechaExp: "04/23", cvv: "548"}, */
-  ];
+  listTarjetas: any[] = [];
 
   form: FormGroup;
 
@@ -35,6 +32,7 @@ export class TarjetaCreditoComponent implements OnInit {
   obtenerTarjetas(){
     this._tarjetaService.getListTarjetas().subscribe(data => {
       console.log(data);
+      this.listTarjetas = data;
     }, error => {
       console.log(error);
     })
@@ -52,8 +50,13 @@ export class TarjetaCreditoComponent implements OnInit {
     this.form.reset();
   }
 
-  eliminarTarjeta(index: number){
-    this.listTarjetas.splice(index, 1);
-    this.toastr.error(' Tu tarjeta se eliminó exitosamente', 'Tarjeta eliminada')
+  eliminarTarjeta(id: number){
+    this._tarjetaService.deleteTarjetas(id).subscribe(data => {
+      this.toastr.error(' Tu tarjeta se eliminó exitosamente', 'Tarjeta eliminada');
+      this.obtenerTarjetas();
+    }, error => {
+      console.log(error);
+    })
+
   }
 }
