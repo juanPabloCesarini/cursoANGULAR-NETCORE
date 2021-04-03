@@ -16,3 +16,8 @@ Para configurar bootstrap agregar la siguiente linea en styles del archivo angul
 ### Para instalar toastr desde consola
 * npm install ngx-toastr --save
 * Documentación: https://www.npmjs.com/package/ngx-toastr
+
+### Para crear servicios
+* ng g s carpeta/nombre_servicio
+  * g: generate
+  * s: service

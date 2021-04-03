@@ -34,7 +34,13 @@ namespace BETarjetaCredito
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BETarjetaCredito", Version = "v1" });
             });
 
-            services.AddDbContext<AplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            services.AddDbContext<AplicationDbContext>(options =>
+                             options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+
+            services.AddCors(options => options.AddPolicy("AllowedApp",
+                             builder => builder.AllowAnyOrigin()
+                                               .AllowAnyHeader()
+                                               .AllowAnyMethod()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +52,8 @@ namespace BETarjetaCredito
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BETarjetaCredito v1"));
             }
+
+            app.UseCors("AllowedApp");
 
             app.UseHttpsRedirection();
 
